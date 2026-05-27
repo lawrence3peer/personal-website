@@ -2,6 +2,7 @@ import type { StructureResolver } from "sanity/structure";
 
 export const structure: StructureResolver = (S) =>
   S.list()
+    .id("root")
     .title("内容管理")
     .items([
       S.listItem()
