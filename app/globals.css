@@ -1,26 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* 自定义颜色 */
+  --color-cream: #FFF8F0;
+  --color-sage: #8B9E8B;
+  --color-brown: #A67B5B;
+  --color-charcoal: #3D3229;
+
+  /* 自定义字体 */
+  --font-serif: "Noto Serif SC", serif;
+  --font-sans: "Noto Sans SC", sans-serif;
+  --font-display: "Playfair Display", serif;
+
+  /* 自定义圆角 */
+  --radius-card: 8px;
+
+  /* 自定义阴影 */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-cream text-charcoal font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .card {
+    @apply bg-white rounded-card shadow-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-sage text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-brown hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-sage text-sage px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-sage hover:text-white;
+  }
 }
