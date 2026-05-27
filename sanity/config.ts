@@ -1,5 +1,5 @@
 import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
+import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemas";
 import { structure } from "./structure";
@@ -10,6 +10,6 @@ export const config = defineConfig({
   title: "个人网站管理",
   apiVersion: "2026-05-27",
   basePath: "/studio",
-  plugins: [deskTool({ structure }), visionTool()],
+  plugins: [structureTool({ structure }), visionTool()],
   schema: { types: schemaTypes },
 });
